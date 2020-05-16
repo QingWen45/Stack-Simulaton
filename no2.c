@@ -1,38 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//ÈëÕ»º¯Êý
+//å…¥æ ˆå‡½æ•°
 int push(int *a, int n, int *len)
 {
     if(n >= *len)
     {
-        //À©³äÕ»¿Õ¼ä
+        //æ‰©å……æ ˆç©ºé—´
         a = (int*)realloc(a, sizeof(int) * (++*len));
     }
     int b;
-    printf("ÇëÊäÈëÕ»Öµ:");
+    printf("è¯·è¾“å…¥æ ˆå€¼:");
     scanf("%d", &b);
     a[++n] = b;
     return n;
 }
 
-//³öÕ»º¯Êý
+//å‡ºæ ˆå‡½æ•°
 int pop(int *a, int n)
 {
     if (n == -1)
     {
-        printf("Õ»Îª¿Õ£¬ÎÞ·¨³öÕ»¡£");
+        printf("æ ˆä¸ºç©ºï¼Œæ— æ³•å‡ºæ ˆã€‚");
         return -1;
     }
     n--;
     return n;
 }
 
-//Õ¹Ê¾Õ»ÔªËØ
+//å±•ç¤ºæ ˆå…ƒç´ 
 void show_stack(int *a, int n)
 {
     int i;
-    printf("Õ»ÖÐÔªËØ: ");
+    printf("æ ˆä¸­å…ƒç´ : ");
     for(i=0;i<=n;i++)
         printf("%d ", a[i]);
     printf("\n");
@@ -45,11 +45,11 @@ int main()
 
     do
     {
-        printf("ÇëÊäÈëÖ¸Áî£º\n");
-        printf("1.ÈëÕ»\n");
-        printf("2.³öÕ»\n");
-        printf("3.²é¿´Õ»¶¥ÔªËØ\n");
-        printf("4.ÍË³ö\n");
+        printf("è¯·è¾“å…¥æŒ‡ä»¤ï¼š\n");
+        printf("1.å…¥æ ˆ\n");
+        printf("2.å‡ºæ ˆ\n");
+        printf("3.æŸ¥çœ‹æ ˆé¡¶å…ƒç´ \n");
+        printf("4.é€€å‡º\n");
         scanf("%d", &i);
         switch(i)
         {
@@ -60,23 +60,24 @@ int main()
                 top = pop(stack, top);
                 break;
             case 3:
-                //Õ¹Ê¾Õ»¶¥µÄÔªËØ
+                //å±•ç¤ºæ ˆé¡¶çš„å…ƒç´ 
                 if(top == -1)
                 {
-                    printf("Õ»Îª¿Õ¡£\n");
+                    printf("æ ˆä¸ºç©ºã€‚\n");
                     break;
                 }
-                printf("Õ»¶¥ÔªËØ: %d\n", stack[top]);
+                printf("æ ˆé¡¶å…ƒç´ : %d\n", stack[top]);
                 break;
             case 4:
                 break;
             default:
-                printf("ÎÞÐ§ÊäÈë¡£\n");
+                printf("æ— æ•ˆè¾“å…¥ã€‚\n");
                 break;
         }
-        //Ã¿´ÎÖ¸ÁîÊäÈëºóÕ¹Ê¾Õ»ÖÐÔªËØ
+        //æ¯æ¬¡æŒ‡ä»¤è¾“å…¥åŽå±•ç¤ºæ ˆä¸­å…ƒç´ 
         if(top != -1) show_stack(stack, top);
     }
+    free(stack);
     while(i != 4);
     return 0;
 }
