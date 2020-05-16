@@ -77,7 +77,7 @@ int main()
                 pop(&stack1);
                 break;
             case 3:
-                show_top(&stack1)
+                show_top(&stack1);
                 break;
             case 4:
                 break;
