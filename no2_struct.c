@@ -6,48 +6,48 @@ typedef struct{
     int top;
 }stack;
 
-//ÈëÕ»º¯Êı
+//å…¥æ ˆå‡½æ•°
 void push(stack *a, int *len)
 {
     if(a->top >= *len)
     {
-        //À©³äÕ»¿Õ¼ä
+        //æ‰©å……æ ˆç©ºé—´
         a->arr = (int*)realloc(a, sizeof(int) * (++*len));
     }
     int b;
-    printf("ÇëÊäÈëÕ»Öµ:");
+    printf("è¯·è¾“å…¥æ ˆå€¼:");
     scanf("%d", &b);
     a->arr[++a->top] = b;
     //return a->top;
 }
 
-//³öÕ»º¯Êı
+//å‡ºæ ˆå‡½æ•°
 void pop(stack *a)
 {
     if (a->top == -1)
     {
-        printf("Õ»Îª¿Õ£¬ÎŞ·¨³öÕ»¡£");
+        printf("æ ˆä¸ºç©ºï¼Œæ— æ³•å‡ºæ ˆã€‚");
         return -1;
     }
     a->top--;
 }
 
-//Õ¹Ê¾Õ»¶¥µÄÔªËØ
+//å±•ç¤ºæ ˆé¡¶çš„å…ƒç´ 
 void show_top(stack *a)
 {
     if(a->top == -1)
     {
-        printf("Õ»Îª¿Õ¡£\n");
+        printf("æ ˆä¸ºç©ºã€‚\n");
     }
     else
-        printf("Õ»¶¥ÔªËØ: %d\n", a->arr[a->top]);
+        printf("æ ˆé¡¶å…ƒç´ : %d\n", a->arr[a->top]);
 }
 
-//Õ¹Ê¾Õ»ÔªËØ
+//å±•ç¤ºæ ˆå…ƒç´ 
 void show_stack(stack *a)
 {
     int i;
-    printf("Õ»ÖĞÔªËØ: ");
+    printf("æ ˆä¸­å…ƒç´ : ");
     for(i=0;i<=a->top;i++)
         printf("%d ", a->arr[i]);
     printf("\n");
@@ -62,11 +62,11 @@ int main()
 
     do
     {
-        printf("ÇëÊäÈëÖ¸Áî£º\n");
-        printf("1.ÈëÕ»\n");
-        printf("2.³öÕ»\n");
-        printf("3.²é¿´Õ»¶¥ÔªËØ\n");
-        printf("4.ÍË³ö\n");
+        printf("è¯·è¾“å…¥æŒ‡ä»¤ï¼š\n");
+        printf("1.å…¥æ ˆ\n");
+        printf("2.å‡ºæ ˆ\n");
+        printf("3.æŸ¥çœ‹æ ˆé¡¶å…ƒç´ \n");
+        printf("4.é€€å‡º\n");
         scanf("%d", &i);
         switch(i)
         {
@@ -82,13 +82,14 @@ int main()
             case 4:
                 break;
             default:
-                printf("ÎŞĞ§ÊäÈë¡£\n");
+                printf("æ— æ•ˆè¾“å…¥ã€‚\n");
                 break;
         }
-        //Ã¿´ÎÖ¸ÁîÊäÈëºóÕ¹Ê¾Õ»ÖĞÔªËØ
+        //æ¯æ¬¡æŒ‡ä»¤è¾“å…¥åå±•ç¤ºæ ˆä¸­å…ƒç´ 
         if(stack1.top != -1) show_stack(&stack1);
     }
     while(i != 4);
+    free(stack1.arr);
     return 0;
 }
 
