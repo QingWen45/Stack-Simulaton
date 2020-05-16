@@ -77,8 +77,8 @@ int main()
         //每次指令输入后展示栈中元素
         if(top != -1) show_stack(stack, top);
     }
-    free(stack);
     while(i != 4);
+    free(stack);
     return 0;
 }
 
